@@ -5,7 +5,7 @@
       title: String,
       original_title: String,
       language: String,
-      voto: Number,
+      vote: Number,
       overview: String,
       image: String,
     },
@@ -24,13 +24,13 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="/img/image.png" :alt="title">
+          <img :src="`https://image.tmdb.org/t/p/w342${image}`" :alt="title">
         </div>
         <div class="flip-card-back overflow-y-auto">
-          <h2>{{ title }}</h2> 
-          <p>{{ original_title }}</p> 
+          <h2>{{ title }}</h2>
+          <p>{{ original_title }}</p>
           <p>{{ language }}</p>
-          <p>{{ voto }}</p>
+          <p>{{ Math.ceil(vote) }}</p>
           <p>{{ overview }}</p>
         </div>
       </div>

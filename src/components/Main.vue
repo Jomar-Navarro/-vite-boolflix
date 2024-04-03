@@ -25,8 +25,9 @@
         :title="movie.title"
         :original_title="movie.original_title"
         :language="movie.original_language"
+        :vote="movie.vote_average"
         :overview="movie.overview"
-        :image="`https://image.tmdb.org/t/p/${movie.poster_path}`"/>
+        :image="movie.poster_path"/>
     </div>
   </div>
 
