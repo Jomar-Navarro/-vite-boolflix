@@ -5,15 +5,16 @@
       return{
         store,
         movieSearch: '',
+        tvSearch: '',
       }
     },
     
 
     methods:{
       startSearch(){
-        this.store.queryParams.query = this.movieSearch;
+        this.store.queryParams.query = `${this.movieSearch} ${this.tvSearch}`;
         this.$emit('startSearch');
-        console.log(this.movieSearch);
+        console.log(this.store.queryParams.query);
       }
     }
   }

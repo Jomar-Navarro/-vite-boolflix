@@ -37,8 +37,8 @@
         axios.get(this.store.apiUrlTvseries, {
           params: this.store.queryParams
         })
-          .then(result => {
-            this.store.tvseriesList = result.data.results
+          .then(res => {
+            this.store.tvseriesList = res.data.results
             console.log(this.store.tvseriesList)
           })
           .catch(error => {
