@@ -41,7 +41,7 @@
         :original_title="series.original_name"
         :language="series.original_language"
         :overview="series.overview"
-        :image="`https://image.tmdb.org/t/p/${series.poster_path}`" />
+        :image="series.poster_path" />
     </div>
   </div>
 </template>

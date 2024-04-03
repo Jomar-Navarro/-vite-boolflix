@@ -58,12 +58,14 @@
 
 <template>
   <div>
-    <Header @startSearch = "getApiMovie"/>
+    <Header @startSearch="getApiMovie(), getApiTvseries()" />
     <Main />
     <Footer />
   </div>
 </template>
 
 <style lang="scss">
-
+  body{
+    background-color: darkgray;
+  }
 </style>

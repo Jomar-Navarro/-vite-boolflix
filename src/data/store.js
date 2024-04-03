@@ -11,9 +11,4 @@ export const store = reactive({
     query: '',
     language: '',
   },
-  
-  // languageFlags:{
-  //   en: '/img/image.png',
-  //   it: '/img/image.png',
-  // }
 })

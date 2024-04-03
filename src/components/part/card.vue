@@ -14,6 +14,10 @@
       return{
         store
       }
+    },
+
+    methods:{
+      
     }
   }
 </script>
@@ -30,7 +34,9 @@
           <h2>{{ title }}</h2>
           <p>{{ original_title }}</p>
           <p>{{ language }}</p>
-          <p>{{ Math.ceil(vote) }}</p>
+          <p>
+            {{ Math.ceil(vote / 2) }}
+          </p>
           <p>{{ overview }}</p>
         </div>
       </div>
