@@ -18,14 +18,31 @@
     },
     
     methods:{
-      
-    },
+      getApi(){
+        axios.get(this.store.apiUrl, {
+          params: this.store.queryParams
+        })
+        .then(result => {
+          this.store.moviesList = result.data.results
+          console.log(this.store.moviesList)
+        })
+        .catch(error => {
+          console.log(error);
+          this.store.errorString = 'Movie not found'
+        })
+
+      }
+    },  
+
+    mounted(){
+      this.getApi()
+    }
   }
 </script>
 
 <template>
   <div>
-    <Header />
+    <Header @startSearch = "getApi"/>
     <Main />
     <Footer />
   </div>
