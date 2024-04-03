@@ -24,7 +24,7 @@
   <header>
     <div class="container d-flex justify-content-between text-center align-items-center h-100">
       <div class="logo">
-        <h1>Boolflix</h1>
+        <h1>{{ this.store.mainTitle }}</h1>
       </div>
 
       <div class="searchBar d-flex">
