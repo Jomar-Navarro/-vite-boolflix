@@ -15,6 +15,10 @@
         store
       }
     },
+
+    methods:{
+
+    }
   }
 </script>
 
@@ -24,7 +28,8 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img :src="`https://image.tmdb.org/t/p/w342${image}`" :alt="title">
+          <img v-if="image" :src="`https://image.tmdb.org/t/p/w342${image}`" :alt="title">
+          <div v-else class="icon"><i class="fa-regular fa-image"></i></div>
         </div>
         <div class="flip-card-back overflow-y-auto">
           <h2>{{ title }}</h2>
@@ -32,8 +37,8 @@
           <p>{{ language }}</p>
           <div class="d-flex justify-content-center ">
             <p v-for="star in 5" :key="star">
-                <i v-if="star <= Math.ceil(vote / 2)" class="fas fa-star"></i>
-                <i v-else class="far fa-star"></i>
+              <i v-if="star <= Math.ceil(vote / 2)" class="fas fa-star"></i>
+              <i v-else class="far fa-star"></i>
             </p>
           </div>
           <p>{{ overview }}</p>
@@ -86,5 +91,18 @@
   background-color: red;
   color: white;
   transform: rotateY(180deg);
+}
+
+.icon{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon i{
+  font-size: 50px;
+  color: #ccc;
 }
 </style>
