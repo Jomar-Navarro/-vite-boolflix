@@ -1,4 +1,5 @@
 <script>
+  import { store } from '../../data/store';
   export default {
     props:{
       title: String,
@@ -7,6 +8,12 @@
       voto: Number,
       overview: String,
       image: String,
+    },
+    
+    data(){
+      return{
+        store
+      }
     }
   }
 </script>
@@ -17,7 +24,7 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img :src="image" :alt="title">
+          <img src="/img/image.png" :alt="title">
         </div>
         <div class="flip-card-back overflow-y-auto">
           <h2>{{ title }}</h2> 

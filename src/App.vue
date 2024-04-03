@@ -18,8 +18,8 @@
     },
     
     methods:{
-      getApi(){
-        axios.get(this.store.apiUrl, {
+      getApiMovie(){
+        axios.get(this.store.apiUrlMovie, {
           params: this.store.queryParams
         })
         .then(result => {
@@ -31,18 +31,34 @@
           this.store.errorString = 'Movie not found'
         })
 
+      },
+
+      getApiTvseries() {
+        axios.get(this.store.apiUrlTvseries, {
+          params: this.store.queryParams
+        })
+          .then(result => {
+            this.store.tvseriesList = result.data.results
+            console.log(this.store.tvseriesList)
+          })
+          .catch(error => {
+            console.log(error);
+            this.store.errorString = 'Tv Series not found'
+          })
+
       }
     },  
 
     mounted(){
-      this.getApi()
+      this.getApiMovie()
+      this.getApiTvseries()
     }
   }
 </script>
 
 <template>
   <div>
-    <Header @startSearch = "getApi"/>
+    <Header @startSearch = "getApiMovie"/>
     <Main />
     <Footer />
   </div>
