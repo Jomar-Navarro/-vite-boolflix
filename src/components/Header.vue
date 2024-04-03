@@ -11,8 +11,8 @@
 
 
 <template>
-  <div class="text-center">
-    Header
+  <div class="text-center container">
+    
   </div>
 </template>
 
