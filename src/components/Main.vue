@@ -40,6 +40,7 @@
         :title="series.name"
         :original_title="series.original_name"
         :language="series.original_language"
+        :vote="series.vote_average"
         :overview="series.overview"
         :image="series.poster_path" />
     </div>

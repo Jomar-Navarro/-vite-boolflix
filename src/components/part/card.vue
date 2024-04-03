@@ -15,10 +15,6 @@
         store
       }
     },
-
-    methods:{
-      
-    }
   }
 </script>
 
@@ -34,9 +30,12 @@
           <h2>{{ title }}</h2>
           <p>{{ original_title }}</p>
           <p>{{ language }}</p>
-          <p>
-            {{ Math.ceil(vote / 2) }}
-          </p>
+          <div class="d-flex justify-content-center ">
+            <p v-for="star in 5" :key="star">
+                <i v-if="star <= Math.ceil(vote / 2)" class="fas fa-star"></i>
+                <i v-else class="far fa-star"></i>
+            </p>
+          </div>
           <p>{{ overview }}</p>
         </div>
       </div>
