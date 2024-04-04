@@ -32,9 +32,9 @@
 
 
 <template>
-  <main>
+  <main class="overflow-hidden">
     <div class="container text-center my-5">
-      <h3>{{ title }}</h3>
+      <h1 class="text-white">{{ title }}</h1>
       <div class="row row-cols-6 justify-content-center">
         <card
           v-for="item in store[type]"

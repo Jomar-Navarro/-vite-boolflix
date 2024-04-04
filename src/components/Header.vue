@@ -25,7 +25,7 @@
   <header>
     <div class="container d-flex justify-content-between text-center align-items-center h-100">
       <div class="logo">
-        <h1>{{ this.store.mainTitle }}</h1>
+        <img src="/img/boolflix-logo.png" alt="#">
       </div>
 
       <div class="searchBar d-flex">
@@ -50,10 +50,16 @@
 <style lang="scss">
   header{
     color: red;
-    height: 80px;
+    height: 100px;
     background-color: black;
     .searchBar{
       width: 25%;
+    }
+    
+    .logo{
+      img{
+        width: 200px;
+      }
     }
   }
 </style>
