@@ -47,8 +47,9 @@
 
 .image {
   display: block;
-  width: 100%;
+  width: 110%;
   height: auto;
+  border-radius: 20px;
 }
 
 .overlay {
@@ -63,6 +64,7 @@
   height: 0;
   transition: .5s ease;
   scrollbar-width: thin;
+  border-radius: 20px;
 }
 
 .wrapper:hover{
