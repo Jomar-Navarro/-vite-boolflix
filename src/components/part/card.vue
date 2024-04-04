@@ -29,7 +29,7 @@
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img v-if="image" :src="`https://image.tmdb.org/t/p/w342${image}`" :alt="title">
-          <div v-else class="icon"><i class="fa-regular fa-image"></i></div>
+          <img v-else src="/img/imagenotfound.jpg" alt="">
         </div>
         <div class="flip-card-back overflow-y-auto">
           <h2>{{ title }}</h2>
