@@ -29,16 +29,20 @@
       </div>
 
       <div class="searchBar d-flex">
+        
         <input
           type="text"
           class="form-control"
           placeholder="Search a movie..."
-          v-model.trim="movieSearch"
-          @keyup.enter="startSearch">
-        <button @click="startSearch" class="btn btn-secondary mx-3">Search</button>
+          v-model.trim="this.store.queryParams.query"
+          @keyup.enter="$emit('startSearch')">
+
+        <button
+          @click="star$emit('startSearch')"
+          class="btn btn-secondary mx-3">Search
+        </button>
       </div>
     </div>
-
   </header>
 </template>
 

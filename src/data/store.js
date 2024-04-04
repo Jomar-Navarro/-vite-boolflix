@@ -2,8 +2,8 @@ import { reactive } from 'vue';
 
 export const store = reactive({
   mainTitle: 'Boolflix',
-  apiUrlMovie: 'https://api.themoviedb.org/3/search/movie',
-  apiUrlTvseries: 'https://api.themoviedb.org/3/search/tv',
+  apiUrl: 'https://api.themoviedb.org/3/search/',
+  // apiUrlTvseries: 'https://api.themoviedb.org/3/search/tv',
   moviesList: [],
   tvseriesList: [],
   queryParams: {

@@ -18,54 +18,36 @@
     },
     
     methods:{
-      getApiMovie(){
-        axios.get(this.store.apiUrlMovie, {
-          params: this.store.queryParams
-        })
-        .then(result => {
-          this.store.moviesList = result.data.results
-          console.log(this.store.moviesList)
-        })
-        .catch(error => {
-          console.log(error);
-          this.store.errorString = 'Movie not found'
-        })
 
-      },
-
-      getApiTvseries() {
-        axios.get(this.store.apiUrlTvseries, {
-          params: this.store.queryParams
+      getApi(type){
+        console.log(type);
+        axios.get(this.store.apiUrl + type,{
+          params: store.queryParams
         })
           .then(res => {
-            this.store.tvseriesList = res.data.results
-            console.log(this.store.tvseriesList)
+            console.log(res.data);
+            this.store[type] = res.data.results;
           })
-          .catch(error => {
-            console.log(error);
-            this.store.errorString = 'Tv Series not found'
-          })
+      },
 
+      startSearch(){
+        this.getApi('movie')
+        this.getApi('tv')
       }
     },  
 
     mounted(){
-      this.getApiMovie()
-      this.getApiTvseries()
+      this.startSearch()
     }
   }
 </script>
 
 <template>
-  <body>
-    <Header @startSearch="getApiMovie(), getApiTvseries()" />
-    <Main />
-    <Footer />
-  </body>
+  <Header @startSearch="startSearch" />
+  <Main type="movie" />
+  <Main type="tv" />
 </template>
 
 <style lang="scss">
-  body{
-    background-color: #141414;
-  }
+
 </style>

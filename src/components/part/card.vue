@@ -2,12 +2,7 @@
   import { store } from '../../data/store';
   export default {
     props:{
-      title: String,
-      original_title: String,
-      language: String,
-      vote: Number,
-      overview: String,
-      image: String,
+      cardObj: Object,
     },
     
     data(){
@@ -15,88 +10,78 @@
         store
       }
     },
-
-    methods:{
-
-    }
   }
 </script>
 
 
 <template>
-  <div class="container m-3">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img v-if="image" :src="`https://image.tmdb.org/t/p/w342${image}`" :alt="title">
-          <img v-else src="/img/imagenotfound.jpg" alt="">
-        </div>
-        
-        <div class="flip-card-back overflow-y-auto px-3">
-          <h2>{{ title }}</h2>
-          <p>{{ original_title }}</p>
-          <div class="flags">
-            <img v-if="language === 'en'" src="/img/en.png" alt="#">
-            <img v-else-if="language === 'it'" src="/img/it.png" alt="#">
-            <img v-else-if="language" src="/img/ja.png" alt="">
-            <p v-else>{{ language }}</p>
-          </div>
-          <div class="d-flex justify-content-center ">
-            <p v-for="star in 5" :key="star">
-              <i v-if="star <= Math.ceil(vote / 2)" class="fas fa-star"></i>
-              <i v-else class="far fa-star"></i>
-            </p>
-          </div>
-          <p class="overview"><strong>Description:</strong> {{ overview }}</p>
-        </div>
+
+  <div class="wrapper m-3 justify-content-center d-flex">
+    <img v-if="cardObj.poster_path" :src="`https://image.tmdb.org/t/p/w342${cardObj.poster_path}`" alt="Avatar"
+      class="image">
+    <img class="notfound" v-else src="/img/imagenotfound.jpg" alt="image">
+    <div class="overlay overflow-y-auto">
+      <h3>{{ cardObj.title || cardObj.name }}</h3>
+      <h5>{{ cardObj.original_title || cardObj.original_name }}</h5>
+      <div class="flags">
+        <img v-if="cardObj.original_language === 'en'" src="/img/en.png" alt="#">
+        <img v-else-if="cardObj.original_language === 'it'" src="/img/it.png" alt="#">
+        <img v-else-if="cardObj.original_language" src="/img/ja.png" alt="">
+        <p v-else>{{ cardObj.original_language }}</p>
       </div>
+      <div class="d-flex justify-content-center ">
+        <p v-for="star in 5" :key="star">
+          <i v-if="star <= Math.ceil(cardObj.vote_average / 2)" class="fas fa-star"></i>
+          <i v-else class="far fa-star"></i>
+        </p>
+      </div>
+      <p class="text-start px-3"><strong>Description:</strong> {{ cardObj.overview }}</p>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  .flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 400px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
+.wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 20%;
+  height: 394px;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+.image {
+  display: block;
+  height: auto;
 }
 
-.flip-card-front, .flip-card-back {
+.overlay {
+  color: white;
   position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, 0.7);
+  overflow: hidden;
   width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  height: 0;
+  transition: .5s ease;
+  scrollbar-width: thin;
 }
 
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-  img{
-    width: 100%;
+.wrapper:hover{
+  .overlay {
     height: 100%;
   }
 }
 
-.flip-card-back {
-  background-color: #000000;
+.text {
   color: white;
-  transform: rotateY(180deg);
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .icon{
@@ -115,6 +100,11 @@
 .flags img{
   width: 30px;
   height: 20px;
+}
+
+.notfound{
+  width: 100%;
+  object-fit: fill;
 }
 
 .overview{
