@@ -31,7 +31,8 @@
           <img v-if="image" :src="`https://image.tmdb.org/t/p/w342${image}`" :alt="title">
           <img v-else src="/img/imagenotfound.jpg" alt="">
         </div>
-        <div class="flip-card-back overflow-y-auto">
+        
+        <div class="flip-card-back overflow-y-auto px-3">
           <h2>{{ title }}</h2>
           <p>{{ original_title }}</p>
           <div class="flags">
@@ -46,7 +47,7 @@
               <i v-else class="far fa-star"></i>
             </p>
           </div>
-          <p>{{ overview }}</p>
+          <p class="overview"><strong>Description:</strong> {{ overview }}</p>
         </div>
       </div>
     </div>
@@ -114,5 +115,9 @@
 .flags img{
   width: 30px;
   height: 20px;
+}
+
+.overview{
+  text-align: left;
 }
 </style>
