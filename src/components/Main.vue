@@ -4,12 +4,6 @@
   export default {
     props:{
       type: String,
-      title: String,
-      original_title: String,
-      language: String,
-      vote: String,
-      overview: String,
-      image: String,
     },
 
     components:{
@@ -18,15 +12,15 @@
     
     data(){
       return{
-        store
+        store,
       }
     },
 
     computed:{
       title(){
         return this.type === 'movie' ? 'Film' : 'Tv Series'
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -36,10 +30,7 @@
     <div class="container text-center my-5">
       <h1 class="text-white">{{ title }}</h1>
       <div class="row row-cols-5 justify-content-center">
-        <card
-          v-for="item in store[type]"
-          :key="item.id"
-          :cardObj="item" />
+        <card v-for="item in store[type]" :key="item.id" :cardObj="item" />
       </div>
     </div>
   </main>

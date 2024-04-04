@@ -3,10 +3,12 @@
   import { store } from './data/store';
   import Header from './components/Header.vue';
   import Main from './components/Main.vue';
+  import Popular from './components/popular.vue';
   export default {
     components:{
       Header,
       Main,
+      Popular,
     },
 
     data(){
@@ -16,6 +18,16 @@
     },
     
     methods:{
+
+      getPopularMovies(){
+        axios.get(this.store.apiPopular,{
+          params: store.queryParams
+        })
+          .then(results => {
+            this.store.popularList = results.data.results
+            console.log(this.store.popularList);
+          })
+      },
 
       getApi(type){
         console.log(type);
@@ -36,14 +48,18 @@
 
     mounted(){
       this.startSearch()
+      this.getPopularMovies();
     }
   }
 </script>
 
 <template>
   <Header @startSearch="startSearch" />
-  <Main type="movie" />
-  <Main type="tv" />
+  <Popular />
+  <div>
+    <Main type="movie" />
+    <Main type="tv" />
+  </div>
 </template>
 
 <style lang="scss">

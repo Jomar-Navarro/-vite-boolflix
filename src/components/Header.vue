@@ -13,9 +13,10 @@
     methods:{
       startSearch(){
         this.store.queryParams.query = `${this.movieSearch} ${this.tvSearch}`;
+        this.store.search = true;
         this.$emit('startSearch');
         console.log(this.store.queryParams.query);
-      }
+      },
     }
   }
 </script>
@@ -55,7 +56,7 @@
     .searchBar{
       width: 25%;
     }
-    
+
     .logo{
       img{
         width: 200px;
