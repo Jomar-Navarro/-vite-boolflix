@@ -57,11 +57,11 @@
 </script>
 
 <template>
-  <div>
+  <body>
     <Header @startSearch="getApiMovie(), getApiTvseries()" />
     <Main />
     <Footer />
-  </div>
+  </body>
 </template>
 
 <style lang="scss">

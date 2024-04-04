@@ -34,7 +34,12 @@
         <div class="flip-card-back overflow-y-auto">
           <h2>{{ title }}</h2>
           <p>{{ original_title }}</p>
-          <p>{{ language }}</p>
+          <div class="flags">
+            <img v-if="language === 'en'" src="/img/en.png" alt="#">
+            <img v-else-if="language === 'it'" src="/img/it.png" alt="#">
+            <img v-else-if="language" src="/img/ja.png" alt="">
+            <p v-else>{{ language }}</p>
+          </div>
           <div class="d-flex justify-content-center ">
             <p v-for="star in 5" :key="star">
               <i v-if="star <= Math.ceil(vote / 2)" class="fas fa-star"></i>
@@ -104,5 +109,10 @@
 .icon i{
   font-size: 50px;
   color: #ccc;
+}
+
+.flags img{
+  width: 30px;
+  height: 20px;
 }
 </style>
