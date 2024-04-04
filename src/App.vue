@@ -66,6 +66,6 @@
 
 <style lang="scss">
   body{
-    background-color: darkgray;
+    background-color: #141414;
   }
 </style>

@@ -16,7 +16,8 @@
 
 
 <template>
-    <div class="text-center my-3">
+  <main>
+    <div class="text-center">
       <h1>Movie</h1>
       <div class="row-cols-6 text-center justify-content-center d-flex flex-wrap">
         <card
@@ -31,7 +32,7 @@
       </div>
     </div>
   
-    <div class="text-center my-3">
+    <div class="text-center">
       <h1>TV Series</h1>
       <div class="row-cols-6 text-center justify-content-center d-flex flex-wrap">
         <card
@@ -45,9 +46,12 @@
           :image="series.poster_path" />
       </div>
     </div>
+  </main>
 </template>
 
 
 <style lang="scss">
-
+  main{
+    background-color: #434343;
+  }
 </style>
