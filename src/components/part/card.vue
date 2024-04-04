@@ -43,7 +43,6 @@
 <style lang="scss" scoped>
 .wrapper {
   position: relative;
-  // width: 20%;
 }
 
 .image {
