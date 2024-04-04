@@ -43,12 +43,12 @@
 <style lang="scss" scoped>
 .wrapper {
   position: relative;
-  width: 20%;
-  height: 394px;
+  // width: 20%;
 }
 
 .image {
   display: block;
+  width: 100%;
   height: auto;
 }
 
@@ -58,7 +58,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: rgb(0, 0, 0, 0.9);
   overflow: hidden;
   width: 100%;
   height: 0;
