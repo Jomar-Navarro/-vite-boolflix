@@ -27,7 +27,7 @@ import { Pagination } from 'swiper/modules';
 <template>
 
   <h1 class="text-white d-flex justify-content-center mt-5">
-    <img src="/img/popular.png" alt="">
+    <img src="/img/popular.png" alt="popular.png">
   </h1>
   <swiper :slidesPerView="3" :spaceBetween="1" :pagination="{
     clickable: true,
