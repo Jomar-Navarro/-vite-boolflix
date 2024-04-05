@@ -25,22 +25,31 @@
 <template>
   <header>
     <div class="container d-flex justify-content-between text-center align-items-center h-100">
-      <div class="logo">
-        <img src="/img/boolflix-logo.png" alt="#">
+      <div class="d-flex align-items-center">
+        <div class="logo">
+          <img src="/img/boolflix-logo.png" alt="#">
+        </div>
+        <div class="px-5">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tv Series</a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="searchBar d-flex">
-        
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search a movie..."
-          v-model.trim="this.store.queryParams.query"
-          @keyup.enter="$emit('startSearch')">
 
-        <button
-          @click="star$emit('startSearch')"
-          class="btn btn-secondary mx-3">Search
+        <input type="text" class="form-control" placeholder="Search a movie..."
+          v-model.trim="this.store.queryParams.query" @keyup.enter="$emit('startSearch')">
+
+        <button @click="star$emit('startSearch')" class="btn btn-secondary mx-3">Search
         </button>
       </div>
     </div>
@@ -60,6 +69,18 @@
     .logo{
       img{
         width: 200px;
+      }
+    }
+
+    .nav{
+      li{
+        a{
+          color: rgb(255, 255, 255, 0.8);
+
+          &:hover{
+            color: red;
+          }
+        }
       }
     }
   }
