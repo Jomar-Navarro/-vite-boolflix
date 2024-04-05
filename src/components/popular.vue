@@ -26,16 +26,15 @@ import { Pagination } from 'swiper/modules';
 
 <template>
 
-
+  <h1 class="text-white d-flex justify-content-center mt-5">Popular</h1>
   <swiper :slidesPerView="3" :spaceBetween="1" :pagination="{
     clickable: true,
   }" :modules="modules" class="mySwiper">
     <swiper-slide v-for="item in store.popularList" :key="item.id">
       <div class="overflow-hidden">
         <div class="container text-center my-5">
-          <h1 class="text-white">Popular</h1>
           <div class="row row-cols-2 justify-content-center">
-            <card :cardObj="item" />
+            <card class="zoom" :cardObj="item" />
           </div>
         </div>
       </div>
@@ -48,6 +47,17 @@ import { Pagination } from 'swiper/modules';
 </template>
 
 
-<style lang="scss" scoped>
+  <style lang="scss" scoped>
+  .zoom:hover {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+  }
 
+  .zoom {
+    transition: transform .2s;
+    margin: 0 auto;
+  }
 </style>

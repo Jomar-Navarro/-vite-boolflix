@@ -30,7 +30,7 @@
     <div class="container text-center my-5">
       <h1 class="text-white">{{ title }}</h1>
       <div class="row row-cols-5 justify-content-center">
-        <card v-for="item in store[type]" :key="item.id" :cardObj="item" />
+        <card class="zoom" v-for="item in store[type]" :key="item.id" :cardObj="item" />
       </div>
     </div>
   </main>
@@ -38,5 +38,15 @@
 
 
 <style lang="scss">
-
+  .zoom {
+    transition: transform .2s;
+    margin: 0 auto;
+  }
+  .zoom:hover {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+  }
 </style>
