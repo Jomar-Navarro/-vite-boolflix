@@ -18,7 +18,7 @@
 
     computed:{
       title(){
-        return this.type === 'movie' ? 'Film' : 'Tv Series'
+        return this.type === 'movie' ? '/img/film2.png' : '/img/tvseries.png'
       },
     },
   }
@@ -28,7 +28,7 @@
 <template>
   <main class="overflow-hidden">
     <div class="container text-center my-5">
-      <h1 class="text-white">{{ title }}</h1>
+      <img :src="title" alt="title">
       <div class="row row-cols-5 justify-content-center">
         <card class="zoom" v-for="item in store[type]" :key="item.id" :cardObj="item" />
       </div>
