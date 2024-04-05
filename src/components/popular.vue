@@ -50,9 +50,7 @@ import { Pagination } from 'swiper/modules';
   <style lang="scss" scoped>
   .zoom:hover {
     -ms-transform: scale(1.1);
-    /* IE 9 */
     -webkit-transform: scale(1.1);
-    /* Safari 3-8 */
     transform: scale(1.1);
   }
 
