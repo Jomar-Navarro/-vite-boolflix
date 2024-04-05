@@ -43,6 +43,7 @@
       startSearch(){
         this.getApi('movie')
         this.getApi('tv')
+        this.store.popularList = []
       }
     },  
 
