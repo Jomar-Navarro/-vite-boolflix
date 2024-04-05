@@ -79,6 +79,7 @@
 
           &:hover{
             color: red;
+            text-shadow: 10px 5px 10px red;
           }
         }
       }
