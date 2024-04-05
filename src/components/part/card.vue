@@ -22,8 +22,8 @@
     <img class="notfound" v-else src="/img/imagenotfound.jpg" alt="image">
     <div id="content" class="overlay">
 
-      <h3>{{ cardObj.title || cardObj.name }}</h3>
-      <h5>{{ cardObj.original_title || cardObj.original_name }}</h5>
+      <h3 class="p-3">{{ cardObj.title || cardObj.name }}</h3>
+      <h5 class="p-2">{{ cardObj.original_title || cardObj.original_name }}</h5>
 
       <div class="flags">
         <img v-if="cardObj.original_language === 'en'" src="/img/en.png" alt="#">
@@ -51,7 +51,7 @@
 
 .image {
   display: block;
-  width: 110%;
+  width: 108%;
   height: auto;
   border-radius: 20px;
 }

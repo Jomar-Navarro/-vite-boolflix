@@ -56,7 +56,7 @@
 
 <template>
   <Header @startSearch="startSearch" />
-  <Popular />
+  <Popular v-if="this.store.popularList.length > 0" />
   <div>
     <Main type="movie" />
     <Main type="tv" />
