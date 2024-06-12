@@ -58,7 +58,7 @@ export default {
 <template>
 	<Header @startSearch="startSearch" />
 	<div class="main-wrapper">
-		<Popular class="popular" v-if="this.store.popularList.length > 0" />
+		<Popular v-if="this.store.popularList.length > 0" />
 		<Main type="movie" />
 		<Main type="tv" />
 	</div>
