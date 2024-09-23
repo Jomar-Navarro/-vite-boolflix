@@ -14,6 +14,7 @@ export default {
 	data() {
 		return {
 			store,
+			hasSearched: false,
 		};
 	},
 
@@ -45,11 +46,12 @@ export default {
 			this.getApi("movie");
 			this.getApi("tv");
 			this.store.popularList = [];
+			this.hasSearched = true;
 		},
 	},
 
 	mounted() {
-		this.startSearch();
+		// this.startSearch();
 		this.getPopularMovies();
 	},
 };
@@ -58,15 +60,14 @@ export default {
 <template>
 	<Header @startSearch="startSearch" />
 	<div class="main-wrapper">
-		<Popular v-if="this.store.popularList.length > 0" />
-		<Main type="movie" />
-		<Main type="tv" />
+		<Popular id="popular" v-if="this.store.popularList.length > 0" />
+		<Main v-if="hasSearched" :type="'movie'" :hasSearched="hasSearched" />
+		<Main v-if="hasSearched" :type="'tv'" :hasSearched="hasSearched" />
 	</div>
 </template>
 
 <style lang="scss">
-.main-wrapper {
-	height: 100vh;
-	height: 100%;
+html {
+	background-color: #353535;
 }
 </style>
