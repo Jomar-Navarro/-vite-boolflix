@@ -2,7 +2,7 @@
 
 BoolFlix è un'applicazione web che consente agli utenti di visualizzare una lista di film popolari e cercare film o serie TV. Questo progetto è stato sviluppato utilizzando Vue.js per la gestione dell'interfaccia utente e Axios per recuperare i dati da un'API esterna.
 
-![BoolFlix Screenshot](public/img/screenshot.png)
+![BoolFlix Screenshot](public/img/Screenshot.png)
 
 ## Funzionalità principali
 
